@@ -1,0 +1,54 @@
+body{
+  background-color: #1A4D2E;
+  color:#FF9F29;
+  text-align: center;
+}
+h1{
+  font-size: 5rem;
+  border:25%;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  font-family: 'Maven Pro', sans-serif;
+}
+footer{
+  font-family: 'Open Sans', sans-serif;
+  position: absolute;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  height: 40px;
+  width:98%;
+}
+.infix{
+  padding-bottom: 30px;
+}
+h4{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+input{
+  width: 40%;
+  height:40px;
+  background-color: #FAF3E3;
+  color: #1A4D2E;
+  text-align: center;
+  font-size: 110%;
+}
+.btn {
+  border-radius: 10px;
+  font-family: Arial;
+  color: #1A4D2E;
+  font-size: 20px;
+  background: #FF9F29;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+.btn:hover{
+  transform: scale(0.95) translateY(-2px);
+  box-shadow: 0px 0px 10px 1px rgba(247, 223, 3, 0.448);
+  cursor: pointer;
+}
+.postfix{
+  padding-top: 35px;
+}
+.result{
+  font-size: 2rem;
+}
