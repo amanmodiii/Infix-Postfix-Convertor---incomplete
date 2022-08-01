@@ -1,8 +1,46 @@
-var stack=[];
+var stack=[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
 var top = -1;
-let res="";
+var res='';
 
-// console.log("hi");
+var infix='';
+var len=0;
+
+var i;
+
+document.querySelector(".compute").addEventListener("click",function(){
+    res="";
+    top=-1;
+    stack=[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
+    infix = document.querySelector(".inputExp").value;
+    len = infix.length;
+
+    for(i = 0;i < len ; i++){
+        let ch = infix[i];
+        if(isLetter(ch)){
+            res+=ch;
+        }
+        else if(ch === '('){
+            push(ch);
+        }
+        else if(ch === ')'){
+            while(stack[top]!='('){
+                pop;
+            }
+            push(ch);
+        }
+        else{
+            while(priority(stack[top])>=priority(ch)){
+                pop;
+            }
+            push(ch);
+        }
+    }
+    while(top!=-1){
+        pop;
+    }
+    console.log(res);
+    document.querySelector(".result").innerText = res;
+});
 
 function push(ch){
     top++;
@@ -15,44 +53,20 @@ function pop(){
     }
 }
 function priority(ch){
-    if(ch=='(')return 0;
-    else if(ch=='+'||ch=='-')return 1;
-    else if(ch=='*'||ch=='/')return 2;
-    else if(ch=='^')return 3;
+    if(ch=='('){
+        return 0;
+    }
+    else if(ch=='+'||ch=='-'){
+        return 1;
+    }
+    else if(ch=='*'||ch=='/'){
+        return 2;
+    }
+    else if(ch=='^'){
+        return 3;
+    }
     return 0;
 }
-let infix="";
-var len=0;
-document.querySelector(".compute").addEventListener("click",function(){
-    res="";
-    infix = document.querySelector(".inputExp").value;
-    console.log(infix);
-    len = infix.length;
-    var i;
-    for(i = 0;i < len ; i++){
-        let ch = infix[i];
-        if((ch>=65 && ch<=90)||(ch>=97 && ch<=122)){
-            res+=ch;
-        }
-        else if(ch === '('){
-            push(ch);
-        }
-        else if(ch === ')'){
-            while(stack[top]!='('){
-                pop();
-            }
-            push(ch);
-        }
-        else{
-            while(priority(stack[top])>=priority(ch)){
-                pop();
-            }
-            push(ch);
-        }
-    }
-    while(top!=-1){
-        pop();
-    }
-    console.log(res);
-    document.querySelector(".result").innerText = res;
-});
+function isLetter(str) {
+  return str.length === 1 && str.match(/[a-z]/i);
+}
