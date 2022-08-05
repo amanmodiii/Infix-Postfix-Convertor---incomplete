@@ -18,6 +18,9 @@ footer{
   height: 40px;
   width:98%;
 }
+a{
+  color: #FF9F29;
+}
 .infix{
   padding-bottom: 30px;
 }

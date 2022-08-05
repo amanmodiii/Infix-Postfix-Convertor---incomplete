@@ -1,5 +1,6 @@
-var stack=[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null];
+var stack;
 var top = -1;
+
 var res='';
 
 var infix='';
@@ -53,16 +54,16 @@ function pop(){
     }
 }
 function priority(ch){
-    if(ch=='('){
+    if(ch==='('){
         return 0;
     }
-    else if(ch=='+'||ch=='-'){
+    else if(ch==='+'||ch==='-'){
         return 1;
     }
-    else if(ch=='*'||ch=='/'){
+    else if(ch==='*'||ch==='/'){
         return 2;
     }
-    else if(ch=='^'){
+    else if(ch==='^'){
         return 3;
     }
     return 0;
